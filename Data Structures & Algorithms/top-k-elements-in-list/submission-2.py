@@ -1,0 +1,29 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+
+        dic = {}
+
+        for num in nums:
+            if num not in dic:
+                dic[num] = 1
+            else:
+                dic[num] += 1
+        
+        li = []
+
+        for key, value in dic.items():
+            li.append([value, key])
+        
+        li.sort()
+
+        result = []
+
+        for i in range(k):
+            biggest = li.pop()
+            result.append(biggest[1])
+        
+        return result
+
+
+
+        
